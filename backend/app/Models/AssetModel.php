@@ -6,13 +6,13 @@ use CodeIgniter\Model;
 
 class AssetModel extends Model
 {
-    protected $table            = 'assets';
-    protected $primaryKey       = 'id';
+    protected $table = 'assets';
+    protected $primaryKey = 'id';
     protected $useAutoIncrement = true;
-    protected $returnType       = 'array';
-    protected $useSoftDeletes   = false; // Set to true if you want to use deleted_at
-    protected $protectFields    = true;
-    protected $allowedFields    = [
+    protected $returnType = 'array';
+    protected $useSoftDeletes = false; // Set to true if you want to use deleted_at
+    protected $protectFields = true;
+    protected $allowedFields = [
         'asset_id',
         'name',
         'image1',
@@ -24,19 +24,19 @@ class AssetModel extends Model
         'inventory_date',
         'inventory_taker',
         'created_at',
-        'updated_at'
+        'updated_at',
+        'type'
     ];
 
     // Dates
     protected $useTimestamps = true;
-    protected $dateFormat    = 'datetime';
-    protected $createdField  = 'created_at';
-    protected $updatedField  = 'updated_at';
-    protected $deletedField  = 'deleted_at';
+    protected $dateFormat = 'datetime';
+    protected $createdField = 'created_at';
+    protected $updatedField = 'updated_at';
 
     // Validation
-    protected $validationRules      = [];
-    protected $validationMessages   = [];
-    protected $skipValidation       = false;
+    protected $validationRules = [];
+    protected $validationMessages = [];
+    protected $skipValidation = false;
     protected $cleanValidationRules = true;
 }

@@ -6,6 +6,10 @@ const props = defineProps({
     type: Object,
     default: null,
   },
+  initialType: {
+    type: Number,
+    default: 1,
+  },
 });
 
 const emit = defineEmits(['save', 'cancel']);
@@ -26,6 +30,9 @@ const form = reactive({
   inventory_taker: '',
   created_at: '',
   updated_at: '',
+  created_at: '',
+  updated_at: '',
+  type: props.initialType,
 });
 
 const imagePreview1 = ref(null);
@@ -70,6 +77,9 @@ function resetForm() {
     inventory_taker: '',
     created_at: '',
     updated_at: '',
+    created_at: '',
+    updated_at: '',
+    type: props.initialType,
   });
   imagePreview1.value = null;
   imagePreview2.value = null;
@@ -103,8 +113,8 @@ const handleSubmit = () => {
 <template>
   <div class="modal-overlay" @click.self="$emit('cancel')">
     <div class="modal-content modal-lg">
-      <div class="modal-header border-bottom-0 pb-0">
-        <h3 class="modal-title h5 fw-bold">{{ isEditMode ? '編輯資產' : '新增資產' }}</h3>
+      <div class="modal-header border-bottom-0 p-2">
+        <h3 class="modal-title h5 fw-bold">{{ isEditMode ? '編輯資產' : '新增資產' }} - {{ form.type === '1' ? '菜鳥資產清點' : '其特資產清點' }}</h3>
         <button type="button" class="btn-close" @click="$emit('cancel')"></button>
       </div>
       

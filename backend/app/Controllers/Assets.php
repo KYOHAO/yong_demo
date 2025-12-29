@@ -34,14 +34,15 @@ class Assets extends ResourceController
 
         // Handle Fields
         $data = [
-            'asset_id' => $this->request->getPost('assetId'), // Vue uses camelCase
+            'asset_id' => $this->request->getPost('asset_id'), // Vue uses camelCase
             'name' => $this->request->getPost('name'),
             'model' => $this->request->getPost('model'),
             'cost' => $this->request->getPost('cost'),
             'quantity' => $this->request->getPost('quantity'),
-            'invoice_number' => $this->request->getPost('invoiceNumber'),
-            'inventory_date' => $this->request->getPost('inventoryDate'),
-            'inventory_taker' => $this->request->getPost('inventoryTaker'),
+            'invoice_number' => $this->request->getPost('invoice_number'),
+            'inventory_date' => $this->request->getPost('inventory_date'),
+            'inventory_taker' => $this->request->getPost('inventory_taker'),
+            'type' => $this->request->getPost('type') ?? 1,
         ];
 
         // Handle File Uploads
@@ -82,14 +83,15 @@ class Assets extends ResourceController
         }
 
         $data = [
-            'asset_id' => $this->request->getPost('assetId'),
+            'asset_id' => $this->request->getPost('asset_id'),
             'name' => $this->request->getPost('name'),
             'model' => $this->request->getPost('model'),
             'cost' => $this->request->getPost('cost'),
             'quantity' => $this->request->getPost('quantity'),
-            'invoice_number' => $this->request->getPost('invoiceNumber'),
-            'inventory_date' => $this->request->getPost('inventoryDate'),
-            'inventory_taker' => $this->request->getPost('inventoryTaker'),
+            'invoice_number' => $this->request->getPost('invoice_number'),
+            'inventory_date' => $this->request->getPost('inventory_date'),
+            'inventory_taker' => $this->request->getPost('inventory_taker'),
+            'type' => $this->request->getPost('type'),
         ];
 
         // Handle File Uploads (Only update if new file uploaded)
@@ -109,7 +111,8 @@ class Assets extends ResourceController
 
         // Remove nulls if you don't want to overwrite with empty
         $data = array_filter($data, function ($v) {
-            return !is_null($v); });
+            return !is_null($v);
+        });
 
         if ($model->update($id, $data)) {
             return $this->respond($data);

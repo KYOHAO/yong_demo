@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 import AssetList from '../components/AssetList.vue';
 import ImagePreviewModal from '../components/ImagePreviewModal.vue';
 import { useAssets } from '../composables/useAssets';
@@ -8,6 +8,14 @@ const { assets, fetchAssets, isLoading } = useAssets();
 
 const isImageModalOpen = ref(false);
 const selectedAssetImages = ref({ image1: null, image2: null });
+const currentType = ref(1);
+
+const filteredAssets = computed(() => {
+  return assets.value.filter(asset => {
+    const assetType = asset.type ? Number(asset.type) : 1;
+    return assetType === currentType.value;
+  });
+});
 
 onMounted(() => {
   fetchAssets();
@@ -39,12 +47,21 @@ const closeImageModal = () => {
           <span class="visually-hidden">Loading...</span>
         </div>
       </div>
-      <AssetList 
-        v-else
-        :assets="assets" 
-        :readonly="true"
-        @viewImages="openImageModal"
-      />
+      <div v-else>
+        <ul class="nav nav-tabs mb-4">
+          <li class="nav-item">
+            <a class="nav-link" :class="{ active: currentType === 1 }" href="#" @click.prevent="currentType = 1">菜鳥資產清點</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" :class="{ active: currentType === 2 }" href="#" @click.prevent="currentType = 2">其特資產清點</a>
+          </li>
+        </ul>
+        <AssetList 
+          :assets="filteredAssets" 
+          :readonly="true"
+          @viewImages="openImageModal"
+        />
+      </div>
     </main>
 
     <ImagePreviewModal
