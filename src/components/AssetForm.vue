@@ -64,12 +64,12 @@ function resetForm() {
     model: '',
     cost: 0,
     quantity: 1,
-    assetId: '',
-    invoiceNumber: '',
-    inventoryDate: new Date().toISOString().split('T')[0],
-    inventoryTaker: '',
-    createdAt: '',
-    updatedAt: '',
+    asset_id: '',
+    invoice_number: '',
+    inventory_date: new Date().toISOString().split('T')[0],
+    inventory_taker: '',
+    created_at: '',
+    updated_at: '',
   });
   imagePreview1.value = null;
   imagePreview2.value = null;
