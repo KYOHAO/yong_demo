@@ -1,0 +1,86 @@
+:root {
+  /* Premium Color Palette */
+  --primary-color: #6366f1;
+  /* Indigo */
+  --primary-light: #818cf8;
+  --primary-light-transparent: rgba(99, 102, 241, 0.2);
+  --primary-dark: #4f46e5;
+
+  --bg-app: #f8fafc;
+  /* Very light blue-grey */
+  --surface-card: #ffffff;
+
+  --text-primary: #1e293b;
+  /* Slate 800 */
+  --text-secondary: #64748b;
+  /* Slate 500 */
+  --border-color: #e2e8f0;
+}
+
+body {
+  background-color: var(--bg-app);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Animations that can be used with utility classes if needed */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Override BS primary if desired, or just rely on custom classes */
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+.btn-outline-primary {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
