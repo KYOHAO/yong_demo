@@ -20,12 +20,12 @@ const form = reactive({
   model: '',
   cost: 0,
   quantity: 1,
-  assetId: '',
-  invoiceNumber: '',
-  inventoryDate: new Date().toISOString().split('T')[0],
-  inventoryTaker: '',
-  createdAt: '',
-  updatedAt: '',
+  asset_id: '',
+  invoice_number: '',
+  inventory_date: new Date().toISOString().split('T')[0],
+  inventory_taker: '',
+  created_at: '',
+  updated_at: '',
 });
 
 const imagePreview1 = ref(null);
