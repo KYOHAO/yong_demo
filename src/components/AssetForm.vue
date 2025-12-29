@@ -112,7 +112,7 @@ const handleSubmit = () => {
         <div class="row g-3">
           <div class="col-md-6">
             <label class="form-label">資產編號</label>
-            <input v-model="form.assetId" type="text" class="form-control" required placeholder="請輸入資產編號" />
+            <input v-model="form.asset_id" type="text" class="form-control" required placeholder="請輸入資產編號" />
           </div>
 
           <div class="col-md-6">
@@ -140,17 +140,17 @@ const handleSubmit = () => {
 
           <div class="col-md-6">
             <label class="form-label">發票號碼</label>
-             <input v-model="form.invoiceNumber" type="text" class="form-control" placeholder="請輸入發票號碼" />
+             <input v-model="form.invoice_number" type="text" class="form-control" placeholder="請輸入發票號碼" />
           </div>
 
           <div class="col-md-6">
              <label class="form-label">清點日期</label>
-             <input v-model="form.inventoryDate" type="date" class="form-control" required />
+             <input v-model="form.inventory_date" type="date" class="form-control" required />
           </div>
           
            <div class="col-md-12">
              <label class="form-label">盤點人</label>
-             <input v-model="form.inventoryTaker" type="text" class="form-control" />
+             <input v-model="form.inventory_taker" type="text" class="form-control" />
           </div>
 
           <div class="col-md-6">
